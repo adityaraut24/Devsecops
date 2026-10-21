@@ -1,6 +1,10 @@
-
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:22'
+            reuseNode true
+        }
+    }
 
     stages {
         stage('Checkout') {
@@ -11,7 +15,6 @@ pipeline {
 
         stage('Check Environment') {
             steps {
-                sh 'echo "Jenkins is running on Linux"'
                 sh 'node --version'
                 sh 'npm --version'
             }
@@ -32,7 +35,7 @@ pipeline {
 
     post {
         success {
-            echo 'Hospital Queue website build completed successfully!'
+            echo 'Hospital Queue Management System build completed successfully!'
         }
         failure {
             echo 'Pipeline failed. Check Console Output.'
