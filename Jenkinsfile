@@ -9,31 +9,33 @@ pipeline {
             }
         }
 
+        stage('Check Environment') {
+            steps {
+                sh 'echo "Jenkins is running on Linux"'
+                sh 'node --version'
+                sh 'npm --version'
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
-                bat 'npm ci'
+                sh 'npm ci'
             }
         }
 
         stage('Build Website') {
             steps {
-                bat 'npm run build'
-            }
-        }
-
-        stage('Build Docker Image') {
-            steps {
-                bat 'docker build -t hospital-queue:1.0 .'
+                sh 'npm run build'
             }
         }
     }
 
     post {
         success {
-            echo 'Hospital Queue Management System pipeline completed successfully.'
+            echo 'Hospital Queue website build completed successfully!'
         }
         failure {
-            echo 'Pipeline failed. Check the console output for errors.'
+            echo 'Pipeline failed. Check Console Output.'
         }
     }
 }
