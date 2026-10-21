@@ -1,0 +1,30 @@
+# =============================================================================
+# Terraform Variables Example for Hospital Queue Management System
+# Copy this file to 'terraform.tfvars' and supply your actual configuration.
+# Never commit 'terraform.tfvars' to source control.
+# =============================================================================
+
+# Target AWS Region
+aws_region = "us-east-1"
+
+# Environment Name
+environment = "production"
+
+# Project Prefix
+project_name = "hospital-queue-system"
+
+# Name of your existing EC2 instance
+instance_name = "hospital-queue-server"
+
+# Instance Type (Free tier eligible)
+instance_type = "t2.micro"
+
+# SSH Key Pair name configured in AWS console (matches hospital-queue-key.pem)
+key_name = "hospital-queue-key"
+
+# Restrict SSH to your administrator public IP address (replace with your IP)
+# Example: "203.0.113.45/32"
+allowed_ssh_cidr = "0.0.0.0/0"
+
+# Enable Amazon ECR repository provisioning
+enable_ecr = true

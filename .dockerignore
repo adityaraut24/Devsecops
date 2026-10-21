@@ -1,0 +1,48 @@
+# Dependencies
+node_modules
+npm-debug.log*
+
+# Git repository
+.git
+.gitignore
+
+# Build output
+dist
+dist-ssr
+build
+
+# Environment files and credentials
+.env
+.env.*
+*.pem
+*.key
+*.pub
+*.id_rsa
+*.id_ed25519
+
+# Infrastructure as Code
+terraform/
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+
+# CI/CD and Containerization artifacts
+Dockerfile*
+docker-compose*.yml
+Jenkinsfile
+.docker
+
+# Documentation and Reports
+docs/
+*.md
+trivy-*.json
+trivy-*.txt
+test-results/
+coverage/
+
+# System and Editor files
+.vscode
+.idea
+.DS_Store
+Thumbs.db

@@ -1,0 +1,14 @@
+# =============================================================================
+# Trivy Security Ignore Policy for Hospital Queue Management System
+# Policy: All exceptions must be narrowly scoped with justified rationale.
+# =============================================================================
+
+# AVD-AWS-0104: Unrestricted outbound egress on ports 80, 443, and 53.
+# Justification: The EC2 instance requires outbound connectivity to Alpine/Ubuntu package
+# mirrors, Docker Hub, and AWS API endpoints to download container images and security updates.
+AVD-AWS-0104
+
+# AVD-AWS-0107: Ingress SSH rule on port 22.
+# Justification: Parameterized via variable 'allowed_ssh_cidr' for dynamic assignment.
+# Production deployments supply a specific administrator IP (/32) in terraform.tfvars.
+AVD-AWS-0107
